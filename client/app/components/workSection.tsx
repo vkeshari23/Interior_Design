@@ -1,5 +1,12 @@
 "use client";
-import { FaFacebookF, FaInstagram, FaWhatsapp, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaWhatsapp,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
+import Link from "next/link";
 
 export default function WorkSection() {
   const steps = [
@@ -11,7 +18,6 @@ export default function WorkSection() {
 
   return (
     <section className="wrapper">
-
       {/* 🔥 PROCESS SECTION */}
       <div className="process">
         <h2>Our Work Process</h2>
@@ -32,9 +38,10 @@ export default function WorkSection() {
       {/* 🔥 HERO SECTION */}
       <div className="hero">
         <div className="overlay">
-          <h1>Think interior. Think X Interiors.</h1>
+          <h1>Think interior. Think Anugraha Home Interior Interiors.</h1>
           <p>
-            Interiors for all tastes and budgets. Choose from thousands of designs.
+            Interiors for all tastes and budgets. Choose from thousands of
+            designs.
           </p>
           <button>CONTACT US</button>
         </div>
@@ -42,76 +49,103 @@ export default function WorkSection() {
 
       {/* 🔥 FOOTER SECTION (3 COLUMN) */}
       <footer className="footer">
-
         <div className="footer-container">
-
-          {/* COLUMN 1 */}
-          <div className="footer-col">
-            <p>ANUGRAHA HOME</p>
-            <p>#13, 2nd Cross, 10th Main, Mathikere, Bengaluru - 560054</p>
-            <p>7259468707</p>
-            <p>info@Anugrahahomeinterior.in</p>
+          {/* COLUMN 1 (LOGO + ABOUT) */}
+          <div className="footer-col logo-col">
+            <h2 className="logo">
+              Anugraha Home
+              <br />
+              INTERIORS
+            </h2>
+            <p className="desc">
+              We are an interior design consultancy firm that brings sensitivity
+              to the design of top restaurants, hotels, offices, and homes
+              around the world. We specialize in all types of interior design,
+              creating prestigious and luxurious spaces.
+            </p>
           </div>
 
-          {/* COLUMN 2 */}
+          {/* COLUMN 2 (USEFUL LINKS) */}
           <div className="footer-col">
-            <h3>Quick Links</h3>
-            <p>» Home</p>
-            <p>» About Us</p>
-            <p>» Service</p>
-            <p>» Projects</p>
-            <p>» Contact Us</p>
-            
+            <h3>USEFUL LINKS</h3>
+            <div className="tags">
+              <Link href="/">Home</Link>
+              <Link href="/aboutUs">About Us</Link>
+              <Link href="/services">Service</Link>
+              <Link href="/projects">Projects</Link>
+              <Link href="/contact">Contact Us</Link>
+              {/* <Link href="/blog">Blog</Link> */}
+            </div>
           </div>
 
-          {/* COLUMN 3 */}
-          <div className="socials">
+          {/* COLUMN 3 (SERVICES) */}
+          <div className="footer-col">
+            <h3>SERVICES</h3>
+            <ul className="services">
+              <li>Wardrobe</li>
+              <li>Study Tables</li>
+              <li>Electrical</li>
+              <li>Plumbing</li>
+              <li>False Ceiling</li>
+              <li>Painting</li>
+              <li>Deep Cleaning</li>
+              <li>Design Services</li>
+              <li>Modular Kitchen</li>
+            </ul>
+          </div>
 
-  <a href="https://www.facebook.com" target="_blank" className="icon">
-    <FaFacebookF />
-  </a>
+          {/* COLUMN 4 (CONTACT) */}
+          <div className="footer-col">
+            <h3>CONTACT US</h3>
+            <p>📍 #13,2nd cross ,10th Main, Mathikere, Bengaluru - 560054</p>
+            <br />
+            <p>📞 +91 7259468707</p>
+            <br />
+            <p>✉️ info@anugrahahomeinteriors.in</p>
+            <br />
 
-  <a href="https://www.instagram.com" target="_blank" className="icon">
-    <FaInstagram />
-  </a>
+            <div className="socials">
+              <div className="diamond">
+                <FaFacebookF />
+              </div>
+              <div className="diamond">
+                <FaLinkedinIn />
+              </div>
+              <div className="diamond">
+                <FaInstagram />
+              </div>
+              {/* <div className="diamond"><FaYoutube /></div> */}
+            </div>
+          </div>
+        </div>
 
-  <a href="https://wa.me/919999999999" target="_blank" className="icon">
-    <FaWhatsapp />
-  </a>
-
-  <a href="https://www.linkedin.com" target="_blank" className="icon">
-    <FaLinkedinIn />
-  </a>
-
-  <a href="https://twitter.com" target="_blank" className="icon">
-    <FaTwitter />
-  </a>
-
-</div>
-
+        {/* Bottom Bar */}
+        <div className="footer-bottom">
+          <p>© 2026 Anugraha Home Interior | All Rights Reserved</p>
+          <p>Powered by Anugraha Home</p>
         </div>
       </footer>
 
       {/* 🔥 CSS */}
       <style jsx>{`
-      .socials {
-  display: flex;
-  gap: 15px;
-  font-size: 20px;
-  margin-top: 10px;
-}
+        .socials {
+          display: flex;
+          gap: 15px;
+          font-size: 20px;
+          margin-top: 10px;
+        }
 
-.icon {
-  color: #ccc;
-  font-size: 22px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-}
+        .icon {
+          color: #ccc;
+          font-size: 22px;
+          transition: all 0.3s ease;
+          display: inline-flex;
+        }
 
-.icon:hover {
-  color: gold;
-  transform: scale(1.3);
-}
+        .icon:hover {
+          color: gold;
+          transform: scale(1.3);
+        }
         .wrapper {
           width: 100%;
         }
@@ -146,7 +180,7 @@ export default function WorkSection() {
         }
 
         .circle:hover {
-          box-shadow: 0 0 25px gold;
+          box-shadow: 0 0 25px #3b82f6; /* 🔵 BLUE SHADOW */
           transform: scale(1.1);
         }
 
@@ -154,7 +188,7 @@ export default function WorkSection() {
           position: absolute;
           bottom: -5px;
           right: -5px;
-          background: #cfa35a;
+          background: #3b82f6;
           width: 25px;
           height: 25px;
           border-radius: 50%;
@@ -165,6 +199,15 @@ export default function WorkSection() {
         }
 
         /* HERO */
+        // .hero {
+        //   height: 60vh;
+        //   background: url("/photos/int_photo1.jpg") center/cover;
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   position: relative;
+        // }
+
         .hero {
           height: 60vh;
           background: url("/photos/int_photo1.jpg") center/cover;
@@ -172,80 +215,226 @@ export default function WorkSection() {
           align-items: center;
           justify-content: center;
           position: relative;
+          padding: 20px; /* 🔥 ADD */
         }
 
         .hero::before {
           content: "";
           position: absolute;
           inset: 0;
-          background: rgba(0,0,0,0.6);
+          background: rgba(0, 0, 0, 0.6);
         }
+
+        // .overlay {
+        //   position: relative;
+        //   text-align: center;
+        //   color: white;
+        // }
 
         .overlay {
           position: relative;
           text-align: center;
           color: white;
+
+          display: flex; /* 🔥 ADD */
+          flex-direction: column; /* 🔥 VERTICAL ORDER */
+          align-items: center;
+          justify-content: center;
+          gap: 15px; /* 🔥 spacing between lines */
         }
 
+        /* HEADING */
+        .overlay h1 {
+          font-size: 32px;
+          max-width: 900px;
+        }
+
+        /* SUBTEXT */
+        .overlay p {
+          font-size: 16px;
+          color: #ccc;
+          max-width: 600px;
+        }
+
+        /* BUTTON */
+        .overlay button {
+          margin-top: 10px;
+        }
+
+        // button {
+        //   padding: 10px 20px;
+        //   background: linear-gradient(90deg, #efd5ff, #515ada);
+        //   border: none;
+        //   cursor: pointer;
+        // }
+
         button {
-          padding: 10px 20px;
-          background: linear-gradient(90deg,#efd5ff,#515ada);
-          border: none;
+          padding: 12px 28px;
+          background: #111; /* 🔲 DARK BLACK */
+          color: white;
+          border: 1px solid #2a2a2a;
           cursor: pointer;
+          letter-spacing: 1px;
+          transition: all 0.3s ease;
+          border-radius: 8px;
+          border: 1px solid #3b82f6;
+        }
+
+        /* Hover Effect */
+        button:hover {
+          border-color: #3b82f6;
+          box-shadow: 0 0 15px #3b82f6; /* 🔵 BLUE GLOW */
+          transform: translateY(-2px);
         }
 
         /* 🔥 FOOTER */
+        /* FOOTER MAIN */
         .footer {
-          background: #0a0a0a;
+          background: #000;
           color: #ccc;
-          padding: 50px 20px;
-          border-top: 1px solid #222;
+          padding: 60px 20px 20px;
         }
 
         .footer-container {
-          display: flex;
-          justify-content: space-between;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
           gap: 40px;
-          flex-wrap: wrap;
-          max-width: 1100px;
+          max-width: 1200px;
           margin: auto;
         }
 
-        .footer-col {
-          flex: 1;
-          min-width: 200px;
+        /* LOGO */
+        .logo {
+          color: white;
+          font-size: 28px;
+          margin-bottom: 20px;
         }
 
+        .desc {
+          line-height: 1.7;
+        }
+
+        /* HEADINGS */
         .footer-col h3 {
           color: white;
-          margin-bottom: 15px;
+          margin-bottom: 20px;
+          position: relative;
         }
 
-        .footer-col p {
-          margin: 8px 0;
+        .footer-col h3::after {
+          content: "";
+          width: 40px;
+          height: 2px;
+          background: #3b82f6; /* 🔵 BLUE */
+          display: block;
+          margin-top: 8px;
+        }
+
+        /* TAG BUTTONS */
+        .tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+
+        .tags :global(a) {
+          border: 1px solid #444;
+          padding: 6px 12px;
+          font-size: 12px;
           cursor: pointer;
+          transition: 0.3s;
+          text-decoration: none;
+          color: #ccc;
+          display: inline-block;
         }
 
-        .footer-col p:hover {
-          color: gold;
+        .tags :global(a:hover) {
+          border-color: #3b82f6;
+          color: #3b82f6;
         }
 
+        /* SERVICES */
+        .services {
+          list-style: none;
+          padding: 0;
+        }
+
+        .services li {
+          padding: 10px 0;
+          border-bottom: 1px solid #222;
+          transition: 0.3s;
+        }
+
+        .services li:hover {
+          color: #3b82f6; /* 🔵 BLUE */
+        }
+
+        /* SOCIAL DIAMOND */
         .socials {
           display: flex;
           gap: 15px;
-          font-size: 22px;
+          margin-top: 20px;
         }
 
-        .socials span:hover {
-          color: gold;
-          transform: scale(1.2);
+        .diamond {
+          width: 45px;
+          height: 45px;
+          border: 1px solid #555;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform: rotate(45deg);
+          cursor: pointer;
           transition: 0.3s;
+        }
+
+        .diamond svg {
+          transform: rotate(-45deg);
+        }
+
+        .diamond:hover {
+          border-color: #3b82f6; /* 🔵 BLUE */
+          color: #3b82f6;
+          transform: rotate(45deg) scale(1.1);
+        }
+
+        /* BOTTOM */
+        .footer-bottom {
+          border-top: 1px solid #222;
+          margin-top: 40px;
+          padding-top: 20px;
+          display: flex;
+          justify-content: space-between;
+          font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+          .footer-container {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .footer-container {
+            grid-template-columns: 1fr;
+          }
+
+          .footer-bottom {
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+          }
         }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
           .steps {
             gap: 20px;
+          }
+          .overlay h1 {
+            white-space: normal; /* mobile पर 2 line allow */
+            font-size: 24px;
           }
 
           .footer-container {
@@ -258,7 +447,6 @@ export default function WorkSection() {
           }
         }
       `}</style>
-
     </section>
   );
 }

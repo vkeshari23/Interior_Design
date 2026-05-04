@@ -25,7 +25,7 @@ const videoRef = useRef<HTMLVideoElement | null>(null);
 
         {/* LEFT CARD */}
         <div className="left">
-          <h2>About S A Interiors</h2>
+          <h2>About Anugraha Home Interiors</h2>
 
           <p>
             We create premium modern interiors with perfect balance of luxury
@@ -64,113 +64,122 @@ const videoRef = useRef<HTMLVideoElement | null>(null);
 
       {/* CSS */}
       <style jsx>{`
-        .wrapper {
-          background: #1f2529;
-          padding: 100px 0;
-          display: flex;
-          justify-content: center;
-        }
+  .wrapper {
+    background: #1f2529;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+  }
 
-        .container {
-          width: 90%;
-          max-width: 1200px;
-          display: flex;
-          transition: 0.4s ease;
-        }
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    transition: 0.4s ease;
+  }
 
-        .container:hover {
-          box-shadow: 0 0 40px rgba(207, 163, 90, 0.6);
-        }
+  .container:hover {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); /* 🔵 blue shadow */
+  }
 
-        /* LEFT */
-        .left {
-          width: 50%;
-          background: #121212;
-          padding: 60px;
-          color: white;
-        }
+  /* LEFT */
+  .left {
+    width: 50%;
+    background: #121212;
+    padding: 60px;
+    color: white;
+  }
 
-        .left h2 {
-          font-size: 36px;
-          margin-bottom: 20px;
-        }
+  .left h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: white;
+  }
 
-        .left p {
-          color: #ccc;
-          margin-bottom: 20px;
-        }
+  .left p {
+    color: #ccc;
+    margin-bottom: 20px;
+  }
 
-        ul {
-          list-style: none;
-          padding: 0;
-          margin-bottom: 30px;
-        }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+  }
 
-        ul li {
-          margin-bottom: 12px;
-          padding-left: 25px;
-          position: relative;
-        }
+  ul li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    color: white;
+  }
 
-        ul li::before {
-          content: "✔";
-          position: absolute;
-          left: 0;
-          color: #cfa35a;
-        }
+  ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #3b82f6; /* 🔵 blue tick */
+  }
 
-        .cta span {
-          color: #cfa35a;
-          text-decoration: underline;
-          cursor: pointer;
-        }
+  .cta span {
+    color: #3b82f6; /* 🔵 blue text */
+    text-decoration: underline;
+    cursor: pointer;
+  }
 
-        /* RIGHT VIDEO */
-        .right {
-          width: 50%;
-          position: relative;
-        }
+  /* RIGHT VIDEO */
+  .right {
+    width: 50%;
+    position: relative;
+  }
 
-        .video {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
+  .video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-        /* BUTTON */
-        .play {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background: #cfa35a;
-          width: 70px;
-          height: 70px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 22px;
-          color: white;
-          cursor: pointer;
-        }
+  /* BUTTON */
+  .play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #3b82f6; /* 🔵 blue button */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.7); /* 🔵 glow */
+    transition: 0.3s;
+  }
 
-        /* MOBILE */
-        @media (max-width: 768px) {
-          .container {
-            flex-direction: column;
-          }
+  .play:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 1);
+  }
 
-          .left,
-          .right {
-            width: 100%;
-          }
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
 
-          .right {
-            height: 250px;
-          }
-        }
-      `}</style>
+    .left,
+    .right {
+      width: 100%;
+    }
+
+    .right {
+      height: 250px;
+    }
+  }
+`}</style>
     </section>
   );
 }

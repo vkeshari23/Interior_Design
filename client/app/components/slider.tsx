@@ -1,109 +1,168 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const slides = [
-  {
-    video: "/videos/headerBackground_vid.mp4",
-    title: "We make dream home a reality",
-    desc: "Design your perfect living space with us.",
-    btn: "Know More",
-  },
-  {
-    video: "/videos/background2.mp4",
-    title: "Modern Interior Design",
-    desc: "Beautiful and minimal interiors for your home.",
-    btn: "Explore",
-  },
-  {
-    video: "/videos/background3.mp4",
-    title: "Luxury Living Experience",
-    desc: "Premium quality furniture and decor.",
-    btn: "Get Started",
-  },
-];
+export default function HeroSection() {
+  const fullText =
+    "Beautiful homes made with care, quality, and your vision in mind";
 
-export default function HeroSlider() {
-  const [current, setCurrent] = useState(0);
+  const [text, setText] = useState("");
 
-  // Auto Slide
   useEffect(() => {
+    let i = 0;
+
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
+      setText(fullText.slice(0, i + 1));
+      i++;
+
+      if (i === fullText.length) clearInterval(interval);
+    }, 35);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative w-full h-[100vh] overflow-hidden">
-      {/* Slides */}
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute w-full h-full transition-opacity duration-1000 ${
-            index === current ? "opacity-100 z-10" : "opacity-0"
-          }`}
-        >
-          {/* Video */}
-          <video
-            src={slide.video}
-            autoPlay
-            loop
-            muted
-            className="w-full h-full object-cover"
-          />
+    <div className="hero-container">
+      
+      {/* Background Video */}
+      <video
+        src="/videos/headerBackground_vid.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="hero-video"
+      />
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-6">
-            <h1 className="text-white text-3xl md:text-6xl font-bold mb-4">
-              {slide.title}
-            </h1>
+      {/* Overlay */}
+      <div className="hero-overlay">
+        
+        <div className="hero-content">
+          
+          {/* Heading */}
+          <h1 className="hero-heading">
+            Built for Living. Designed for You
+          </h1>
 
-            <p className="text-white text-sm md:text-lg mb-6 max-w-xl">
-              {slide.desc}
-            </p>
+          {/* Typing Text */}
+          <p className="hero-text">
+            {text}
+            <span className="cursor">|</span>
+          </p>
 
-            <button
-              className="text-white w-[120px] h-[50px] md:w-[120px] md:h-[50px] rounded-lg font-semibold text-base md:text-lg flex items-center justify-center transition transform hover:scale-105 shadow-xl"
-              style={{
-                background: "linear-gradient(90deg, #efd5ff 0%, #515ada 100%)",
-              }}
-            >
-              {slide.btn}
-            </button>
-          </div>
         </div>
-      ))}
 
-      {/* Dots */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
-        {slides.map((_, index) => (
-          <div
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full cursor-pointer ${
-              current === index ? "bg-yellow-400" : "bg-white"
-            }`}
-          ></div>
-        ))}
       </div>
 
-      {/* Arrows */}
-      <button
-        onClick={() =>
-          setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
+      {/* CSS (Single File) */}
+      <style>{`
+        .hero-container {
+          position: relative;
+          width: 100%;
+          height: 100vh;
+          overflow: hidden;
         }
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/70 p-2 rounded-full z-20"
-      >
-        ◀
-      </button>
 
-      <button
-        onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/70 p-2 rounded-full z-20"
-      >
-        ▶
-      </button>
+        .hero-video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .hero-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0,0,0,0.6);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0 16px;
+        }
+
+        .hero-content {
+          display: inline-block;
+          text-align: left;
+          max-width: 100%;
+        }
+
+        .hero-heading {
+          color: white;
+          font-weight: bold;
+          margin-bottom: 12px;
+          letter-spacing: 1px;
+          line-height: 1.2;
+          animation: fadeUp 1.2s ease forwards;
+
+          font-size: 24px;
+        }
+
+        @media (min-width: 640px) {
+          .hero-heading {
+            font-size: 32px;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .hero-heading {
+            font-size: 48px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .hero-heading {
+            font-size: 64px;
+          }
+        }
+
+        .hero-text {
+          color: #93c5fd;
+          border-left: 2px solid #3b82f6;
+          padding-left: 10px;
+          font-weight: 300;
+          letter-spacing: 1px;
+
+          white-space: normal;
+          overflow: hidden;
+          font-size: 12px;
+        }
+
+        @media (min-width: 640px) {
+          .hero-text {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: 14px;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .hero-text {
+            font-size: 18px;
+          }
+        }
+
+        /* Cursor */
+        .cursor {
+          margin-left: 4px;
+          animation: blink 1s infinite;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes blink {
+          0%, 50%, 100% { opacity: 1; }
+          25%, 75% { opacity: 0; }
+        }
+      `}</style>
     </div>
   );
 }

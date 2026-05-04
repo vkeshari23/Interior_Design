@@ -9,11 +9,11 @@
   --clr: #d9e7ff;
 }
 
-body {
+/* body {
   min-height: 20vh;
   background: var(--clr);
   position: relative;
-}
+} */
 
 .navigation {
   position: fixed;

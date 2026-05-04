@@ -1,25 +1,29 @@
 "use client";
 
 import {
-  Briefcase,
-  Home,
-  Store,
-  Building2,
-  Hospital,
-  BedDouble,
+  Package,
+  Table,
+  Zap,
+  Wrench,
+  Layers,
+  Paintbrush,
+  Sparkles,
+  PencilRuler,
+  ChefHat,
 } from "lucide-react";
 
 export default function ServicesSection() {
   const services = [
-    { title: "Office Interior", icon: <Briefcase size={40} /> },
-    { title: "House Interior", icon: <Home size={40} /> },
-    { title: "Restaurant Interior", icon: <Store size={40} /> },
-    { title: "Hospital Interior", icon: <Hospital size={40} /> },
-    { title: "Appartment Interior", icon: <Building2 size={40} /> },
-    { title: "Hospitality Interior", icon: <BedDouble size={40} /> },
-    { title: "Villa Interior", icon: <Home size={40} /> },
-    { title: "Commercial Interior", icon: <Building2 size={40} /> },
-  ];
+  { title: "Wardrobe", icon: <Package size={40} /> },
+  { title: "Study Tables", icon: <Table size={40} /> },
+  { title: "Electrical", icon: <Zap size={40} /> },
+  { title: "Plumbing", icon: <Wrench size={40} /> },
+  { title: "False Ceiling", icon: <Layers size={40} /> },
+  { title: "Painting", icon: <Paintbrush size={40} /> },
+  { title: "Deep Cleaning", icon: <Sparkles size={40} /> },
+  { title: "Design Services", icon: <PencilRuler size={40} /> },
+  { title: "Modular Kitchen", icon: <ChefHat size={40} /> },
+];
 
   return (
     <section
@@ -33,7 +37,6 @@ export default function ServicesSection() {
         alignItems: "center",
       }}
     >
-
       {/* Heading */}
       <div
         style={{
@@ -69,33 +72,40 @@ export default function ServicesSection() {
       >
         {services.map((item, index) => (
           <div
-  key={index}
-  style={{
-    // backgroundColor: "white",
-    backgroundColor: "#0d0d0d",
-    minHeight: "150px",
-    padding: "24px",
-    display: "flex",
-    gap: "24px",
-    borderRadius: "8px",
-    alignItems: "flex-start",
-    transition: "0.3s",
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.boxShadow =
-      "0 0 20px rgba(212, 164, 95, 0.8)";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.boxShadow = "none";
-  }}
->
+            key={index}
+            style={{
+              backgroundColor: "#0d0d0d",
+              minHeight: "150px",
+              padding: "24px",
+              display: "flex",
+              gap: "24px",
+              borderRadius: "8px",
+              alignItems: "flex-start",
+              transition: "0.3s",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow =
+                "0 0 20px rgba(59, 130, 246, 0.8)";
+              e.currentTarget.style.transform = "translateY(-5px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = "none";
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
             {/* Icon */}
-            <div style={{ color: "#d4a45f" }}>
+            <div style={{ color: "#3b82f6" }}>
               {item.icon}
             </div>
 
             {/* Content */}
-            <div style={{ display: "flex", flexDirection: "column", marginTop: "10px" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginTop: "10px",
+              }}
+            >
               <h3
                 style={{
                   fontSize: "18px",
@@ -108,11 +118,11 @@ export default function ServicesSection() {
 
               <p
                 style={{
-                  color: "#d4a45f",
+                  color: "#3b82f6",
                   marginTop: "8px",
                   fontSize: "14px",
                   cursor: "pointer",
-                  borderBottom: "1px solid #d4a45f",
+                  borderBottom: "1px solid #3b82f6",
                   width: "fit-content",
                 }}
               >
@@ -121,9 +131,7 @@ export default function ServicesSection() {
             </div>
           </div>
         ))}
-
       </div>
-
     </section>
   );
 }

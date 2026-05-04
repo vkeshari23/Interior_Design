@@ -22,28 +22,27 @@ export default function InteriorSection() {
   ];
 
   return (
-    <section className="min-h-screen w-full bg-black text-white flex items-center justify-center px-4 sm:px-6 md:px-10 py-10">
+    <section className="w-full bg-black text-white flex justify-center px-4 sm:px-6 md:px-10 py-12 md:py-16">
       
-      {/* MAIN CONTAINER */}
       <div className="w-full max-w-[1200px]">
         
         {/* HEADING */}
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-light text-[#d4a45f] leading-snug tracking-wide mb-10 md:mb-14 text-left">
+        <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light text-white leading-snug tracking-wide mb-8 sm:mb-10 md:mb-14 text-left">
           Awesome place & what improves <br className="hidden sm:block" />
           explore radiance.
         </h2>
 
-        {/* CARDS GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-10">
+        {/* GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
           
           {data.map((item, index) => (
             <div
               key={index}
-              className="bg-[#111] rounded-2xl overflow-hidden shadow-lg 
-              min-h-[360px] sm:min-h-[380px] md:min-h-[400px] ❌
-              hover:scale-[1.03] 
-              hover:shadow-[0_10px_40px_rgba(212,164,95,0.25)] 
-              transition-all duration-500 flex flex-col"
+              className="bg-[#111] rounded-2xl overflow-hidden shadow-md 
+              transition-all duration-300
+              hover:scale-[1.02] hover:-translate-y-1
+              hover:shadow-[0_12px_40px_rgba(59,130,246,0.35)] 
+              flex flex-col"
             >
               
               {/* IMAGE */}
@@ -53,20 +52,18 @@ export default function InteriorSection() {
                   alt={item.title}
                   width={500}
                   height={300}
-                  className="w-full h-[170px] sm:h-[180px] md:h-[190px] object-cover ❌ transition duration-500 hover:scale-110"
+                  className="w-full h-[160px] sm:h-[170px] md:h-[180px] object-cover transition duration-300 hover:scale-105"
                 />
               </div>
 
               {/* CONTENT */}
-              <div className="px-5 py-5 sm:px-6 sm:py-6 md:px-7 md:py-6 flex flex-col flex-1 ❌">
+              <div className="px-4 py-4 sm:px-5 sm:py-5 md:px-6 md:py-6 flex flex-col flex-1">
                 
-                {/* TITLE */}
-                <h3 className="text-lg sm:text-xl font-semibold tracking-wide mb-2 ❌">
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold tracking-wide">
                   {item.title}
                 </h3>
 
-                {/* DESCRIPTION */}
-                <p className="text-gray-400 mt-2 text-sm leading-relaxed ❌">
+                <p className="text-gray-400 mt-2 text-xs sm:text-sm leading-relaxed">
                   {item.desc}
                 </p>
 

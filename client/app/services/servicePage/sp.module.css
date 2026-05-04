@@ -1,0 +1,112 @@
+.container {
+  background-color: #23272a; /* Dark background from image */
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+  height: 300px;
+  background-image: url('/hero-bg.jpg'); /* Use your background image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroOverlay {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p span {
+  color: #c5a059; /* Gold/Yellow accent color */
+}
+
+/* Main Content */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.headerArea h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.headerArea p {
+  color: #999;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 30px;
+}
+
+.card {
+  background-color: #1a1d20;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.cardTitle {
+  padding: 20px;
+  border-bottom: 3px solid transparent;
+}
+
+.card:hover .cardTitle {
+  border-bottom: 3px solid #c5a059; /* Hover effect border */
+}
+
+.cardTitle h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* WhatsApp Button */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

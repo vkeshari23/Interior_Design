@@ -1,0 +1,154 @@
+.wrapper {
+  width: 100%;
+  background: #000;
+  color: white;
+}
+
+/* 🔝 TOP */
+.top {
+  display: flex;
+  min-height: 70vh;
+}
+
+/* ✅ IMAGE FIX (IMPORTANT) */
+.image {
+  flex: 1;
+  height: 70vh; /* fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 🔥 FULL IMAGE SHOW */
+}
+
+/* RIGHT CONTENT */
+.content {
+  flex: 1;
+  background: #0d1117;
+  padding: 60px;
+}
+
+.content h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.content p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* FEATURES */
+.features {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.features div {
+  border: 1px solid #1f6feb;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #1f6feb;
+}
+
+/* CTA */
+.cta {
+  color: #1f6feb;
+}
+
+/* 🔢 COUNTER */
+.counterSection {
+  display: flex;
+  justify-content: space-around;
+  padding: 60px 20px;
+  background: #02040a;
+  text-align: center;
+}
+
+.number {
+  font-size: 42px;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.counterSection p {
+  color: #bbb;
+  margin-top: 10px;
+}
+
+/* 🔻 BOTTOM */
+.bottom {
+  display: flex;
+  min-height: 60vh;
+}
+
+/* ✅ IMAGE FIX */
+.bottomImg {
+  flex: 1;
+  height: 60vh; /* fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  overflow: hidden;
+}
+
+.bottomImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 🔥 NO CUT */
+}
+
+/* CONTENT */
+.bottomContent {
+  flex: 1;
+  padding: 60px;
+  background: #0d1117;
+}
+
+.bottomContent h2 {
+  margin-bottom: 20px;
+}
+
+.bottomContent p {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.bottomContent ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  color: #1f6feb;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+  .top,
+  .bottom {
+    flex-direction: column;
+  }
+
+  .image,
+  .bottomImg {
+    height: auto;
+  }
+
+  .image img,
+  .bottomImg img {
+    height: auto;
+  }
+
+  .counterSection {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

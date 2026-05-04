@@ -1,102 +1,155 @@
-"use client"
+"use client";
 
-import React, { useState } from "react";
-import "./navbar.css"
-import { RiHome5Line } from "react-icons/ri";
-import { HiOutlineUserGroup } from "react-icons/hi";
-import { MdDesignServices } from "react-icons/md";
-import { GrProjects } from "react-icons/gr";
-import { IoCallOutline } from "react-icons/io5";
+import { useState } from "react";
+import Link from "next/link";
 
-function FloatingBallMenu() {
-  const [activeIndex, setActiveIndex] = useState(0);
+export default function Navbar() {
+  const [active, setActive] = useState(0);
+  const [open, setOpen] = useState(false);
 
-  const handleItemClick = (index: number): void => {
-    setActiveIndex(index);
-  };
-
-  const navItems = [
-    { text: "Home", icon: <RiHome5Line /> },
-    { text: "About", icon: <HiOutlineUserGroup /> },
-    { text: "Service", icon: <MdDesignServices /> },
-    { text: "Project", icon: <GrProjects /> },
-    { text: "Contact", icon: <IoCallOutline /> },
+  const menu = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/aboutUs" },
+    { name: "Services", path: "/services" },
+    { name: "Projects", path: "/projects" },
+    { name: "Contact Us", path: "/contact" },
+    { name: "Blog", path: "/blog", disabled: true },
   ];
 
   return (
-    <div className="navigation">
-      <ul>
-        {navItems.map((item, index) => (
-          <li
-            key={index}
-            className={`list ${index === activeIndex ? "active" : ""}`}
-            onClick={() => handleItemClick(index)}
-          >
-            <a href="#">
-              <span className="icon">
-                <span className="ion-icon">{item.icon}</span>
-              </span>
-              <span className="text">{item.text}</span>
-            </a>
-          </li>
-        ))}
-        <div className="indicator"></div>
-      </ul>
-    </div>
+    <>
+      <header className="navbar">
+        <div className="container">
+
+          {/* LOGO */}
+          <div className="logo">
+            <div className="logo-wrapper">
+              <img src="/photos/int_logo.png" alt="logo" className="logo-img" />
+            </div>
+            <span className="company-name">Anugraha Home</span>
+          </div>
+
+          {/* HAMBURGER */}
+          <div className="hamburger" onClick={() => setOpen(!open)}>
+            ☰
+          </div>
+
+          {/* MENU */}
+          <nav className={`menu ${open ? "open" : ""}`}>
+            {menu.map((item, i) => (
+              <Link href={item.path} key={i}>
+                <button
+                  className={`item ${active === i ? "active" : ""}`}
+                  onClick={() => {
+                    setActive(i);
+                    setOpen(false);
+                  }}
+                >
+                  {item.name}
+                </button>
+              </Link>
+            ))}
+          </nav>
+
+        </div>
+      </header>
+
+      <style jsx>{`
+        .navbar {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          background: linear-gradient(90deg, #0a0a0a, #1a1a1a);
+          z-index: 1000;
+          padding: 12px 0;
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 16px;
+          position: relative;
+        }
+
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: white;
+        }
+
+        .company-name {
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        .logo-img {
+          width: 60px;
+          height: 60px;
+        }
+
+        .menu {
+          display: flex;
+          gap: 10px;
+        }
+
+        .item {
+          padding: 10px 16px;
+          border: none;
+          background: transparent;
+          color: #aaa;
+          cursor: pointer;
+          border-radius: 8px;
+          transition: 0.3s;
+        }
+
+        .item:hover {
+          color: white;
+          box-shadow: 0 0 10px #00aaff;
+        }
+
+        .item.active {
+          color: white;
+          box-shadow: 0 0 10px #00aaff;
+        }
+
+        .hamburger {
+          display: none;
+          font-size: 24px;
+          color: white;
+          cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+          .hamburger {
+            display: block;
+          }
+
+          .menu {
+            position: absolute;
+            top: 70px;
+            right: 16px;
+            background: #111;
+            flex-direction: column;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            width: 200px;
+          }
+
+          .menu.open {
+            display: flex;
+          }
+
+          .item {
+            width: 100%;
+            text-align: left;
+          }
+        }
+      `}</style>
+    </>
   );
 }
-
-export default FloatingBallMenu;
-
-
-// ------------------------------------  Magic menu typescript code start---------------------------------------
-
-// import React, { useState } from "react";
-// import { IoMdNotificationsOutline } from 'react-icons/io';
-// import { AiOutlineHome } from 'react-icons/ai';
-// import { CiLogout } from 'react-icons/ci';
-// import { BsCamera } from 'react-icons/bs';
-// import { CgProfile } from 'react-icons/cg';
-
-// function Magicmenu(): JSX.Element {
-//   const [activeIndex, setActiveIndex] = useState<number>(0);
-
-//   const handleItemClick = (index: number): void => {
-//     setActiveIndex(index);
-//   };
-
-//   const navItems = [
-//     { text: "Home", icon: <AiOutlineHome/> },
-//     { text: "Profile", icon: <CgProfile/> },
-//     { text: "Notification", icon: <IoMdNotificationsOutline/> },
-//     { text: "Camera", icon: <BsCamera/> },
-//     { text: "Logout", icon: <CiLogout/> },
-//   ];
-
-//   return (
-//     <div className="navigation">
-//       <ul>
-//         {navItems.map((item, index) => (
-//           <li
-//             key={index}
-//             className={`list ${index === activeIndex ? "active" : ""}`}
-//             onClick={() => handleItemClick(index)}
-//           >
-//             <a href="#">
-//               <span className="icon">
-//                 <span className="ion-icon">{item.icon}</span>
-//               </span>
-//               <span className="text">{item.text}</span>
-//             </a>
-//           </li>
-//         ))}
-//         <div className="indicator"></div>
-//       </ul>
-//     </div>
-//   );
-// }
-
-// export default Magicmenu;
-
-
-// ------------------------------------  Magic menu typescript code end---------------------------------------

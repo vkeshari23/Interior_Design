@@ -1,20 +1,24 @@
 import AboutService from "./components/aboutService";
 import InteriorSection from "./components/belowslider";
-import FloatingBallMenu from "./components/Navbar";
+import Footer from "./components/footer";
+import Projects from "./components/project";
 import ServicesSection from "./components/serviceSection";
 import HeroSlider from "./components/slider";
-import WorkSection from "./components/workSection";
+import Testimonials from "./components/testiminal";
 
 export default function Page() {
 
   return (
     <>
-    <FloatingBallMenu/>
+    
     <HeroSlider/>
     <InteriorSection/>
     <ServicesSection />
     <AboutService/>
-    <WorkSection/>
+    <Projects/>
+    <Testimonials/>
+    
+    <Footer/>
     </>
   ) 
 }

@@ -1,0 +1,129 @@
+.contactSection {
+  width: 100%;
+  background: #f5f5f5;
+}
+
+/* ===== BANNER ===== */
+.banner {
+  position: relative;
+  height: 300px;
+  background: url("/photos/contact.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.bannerContent {
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.bannerContent h1 {
+  font-size: 40px;
+}
+
+.bannerContent p {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #ddd;
+}
+
+/* ===== MAIN ===== */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+  display: flex;
+  gap: 60px;
+}
+
+/* LEFT */
+.left {
+  flex: 1;
+}
+
+.left h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+}
+
+.form textarea {
+  height: 150px;
+  resize: none;
+}
+
+.form button {
+  width: 150px;
+  padding: 12px;
+  background: #c89b3c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.form button:hover {
+  background: #a87c2a;
+}
+
+/* RIGHT */
+.right {
+  flex: 1;
+}
+
+.right h4 {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.right p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}
