@@ -7,7 +7,7 @@
 /* Hero Section */
 .hero {
   height: 300px;
-  background-image: url('/hero-bg.jpg'); /* Use your background image */
+  background-image: url('/photos/service1.png'); /* Use your background image */
   background-size: cover;
   background-position: center;
   position: relative;
@@ -32,7 +32,7 @@
 }
 
 .hero p span {
-  color: #c5a059; /* Gold/Yellow accent color */
+  color: #00aaff; /* Gold/Yellow accent color */
 }
 
 /* Main Content */
@@ -84,7 +84,7 @@
 }
 
 .card:hover .cardTitle {
-  border-bottom: 3px solid #c5a059; /* Hover effect border */
+  border-bottom: 3px solid #00aaff; /* Hover effect border */
 }
 
 .cardTitle h3 {

@@ -1,15 +1,15 @@
 import styles from './sp.module.css';
 
 const services = [
-  { title: "Wardrobe", img: "/wardrobe.jpg" },
-  { title: "Study Tables", img: "/study-table.jpg" },
-  { title: "Electrical", img: "/electrical.jpg" },
-  { title: "Plumbing", img: "/plumbing.jpg" },
-  { title: "False Ceiling", img: "/false-ceiling.jpg" },
-  { title: "Painting", img: "/painting.jpg" },
-  { title: "Deep Cleaning", img: "/cleaning.jpg" },
-  { title: "Design Services", img: "/design.jpg" },
-  { title: "Modular Kitchen", img: "/kitchen.jpg" },
+  { title: "Wardrobe", img: "/photos/wardrobe.jpg" },
+  { title: "Study Tables", img: "/photos/study_table.jpg" },
+  { title: "Electrical", img: "/photos/electrical.jpg" },
+  { title: "Plumbing", img: "/photos/plumbing.jpg" },
+  { title: "False Ceiling", img: "/photos/false_ceiling.jpg" },
+  { title: "Painting", img: "/photos/painting.jpg" },
+  { title: "Deep Cleaning", img: "/photos/deep_cleaning.jpg" },
+  { title: "Design Services", img: "/photos/designs_ervice.jpg" },
+  { title: "Modular Kitchen", img: "/photos/modular_kitchen.jpg" },
 ];
 
 export default function ServicesPage() {

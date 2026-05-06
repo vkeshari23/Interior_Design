@@ -13,7 +13,6 @@ export default function Navbar() {
     { name: "Services", path: "/services" },
     { name: "Projects", path: "/projects" },
     { name: "Contact Us", path: "/contact" },
-    { name: "Blog", path: "/blog", disabled: true },
   ];
 
   return (
@@ -21,25 +20,41 @@ export default function Navbar() {
       <header className="navbar">
         <div className="container">
 
-          {/* LOGO */}
-          <div className="logo">
-            <div className="logo-wrapper">
-              <img src="/photos/int_logo.png" alt="logo" className="logo-img" />
-            </div>
-            <span className="company-name">Anugraha Home</span>
+          {/* LEFT NAME */}
+          <div className="companyName">
+            Anugraha Home Interior
           </div>
 
-          {/* HAMBURGER */}
-          <div className="hamburger" onClick={() => setOpen(!open)}>
-            ☰
+          {/* CENTER LOGO */}
+          <div className="centerLogo">
+            <img src="/photos/int_logo.png" alt="logo" />
           </div>
 
-          {/* MENU */}
-          <nav className={`menu ${open ? "open" : ""}`}>
+          {/* RIGHT MENU */}
+          <nav className="menu">
             {menu.map((item, i) => (
               <Link href={item.path} key={i}>
                 <button
                   className={`item ${active === i ? "active" : ""}`}
+                  onClick={() => setActive(i)}
+                >
+                  {item.name}
+                </button>
+              </Link>
+            ))}
+          </nav>
+
+          {/* MOBILE ICON */}
+          <div className="hamburger" onClick={() => setOpen(!open)}>
+            ☰
+          </div>
+
+          {/* MOBILE MENU */}
+          <div className={`mobileMenu ${open ? "open" : ""}`}>
+            {menu.map((item, i) => (
+              <Link href={item.path} key={i}>
+                <button
+                  className="item"
                   onClick={() => {
                     setActive(i);
                     setOpen(false);
@@ -49,7 +64,7 @@ export default function Navbar() {
                 </button>
               </Link>
             ))}
-          </nav>
+          </div>
 
         </div>
       </header>
@@ -59,94 +74,124 @@ export default function Navbar() {
           position: fixed;
           top: 0;
           width: 100%;
-          background: linear-gradient(90deg, #0a0a0a, #1a1a1a);
+          background: #0a0a0a;
           z-index: 1000;
-          padding: 12px 0;
+          padding: 15px 0;
         }
 
         .container {
           max-width: 1200px;
           margin: auto;
           display: flex;
-          justify-content: space-between;
           align-items: center;
-          padding: 0 16px;
+          justify-content: space-between;
           position: relative;
         }
 
-        .logo {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          color: white;
-        }
-
-        .company-name {
+        /* LEFT NAME */
+        .companyName {
+          color: #fff;
           font-size: 20px;
           font-weight: bold;
+          position: relative;
         }
 
-        .logo-img {
-          width: 60px;
-          height: 60px;
+        /* U SHAPE LINE */
+        .companyName::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 20px;
+          border-bottom: 2px solid #00aaff;
+          border-radius: 50%;
+          bottom: -10px;
+          left: 0;
         }
 
+        /* CENTER LOGO */
+        .centerLogo {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          top: -10px;
+          background: #000;
+          padding: 10px;
+          border-radius: 50%;
+          box-shadow: 0 0 20px #00aaff;
+        }
+
+        .centerLogo img {
+          width: 70px;
+          height: 70px;
+          object-fit: contain;
+        }
+
+        /* RIGHT MENU */
         .menu {
           display: flex;
           gap: 10px;
         }
 
         .item {
-          padding: 10px 16px;
-          border: none;
+          padding: 8px 14px;
           background: transparent;
+          border: none;
           color: #aaa;
           cursor: pointer;
-          border-radius: 8px;
+          border-radius: 20px;
           transition: 0.3s;
         }
 
-        .item:hover {
-          color: white;
-          box-shadow: 0 0 10px #00aaff;
-        }
-
+        .item:hover,
         .item.active {
-          color: white;
+          color: #fff;
           box-shadow: 0 0 10px #00aaff;
         }
 
+        /* MOBILE */
         .hamburger {
           display: none;
-          font-size: 24px;
           color: white;
+          font-size: 24px;
           cursor: pointer;
         }
 
+        .mobileMenu {
+          display: none;
+        }
+
         @media (max-width: 768px) {
+          .menu {
+            display: none;
+          }
+
           .hamburger {
             display: block;
           }
 
-          .menu {
+          .mobileMenu {
             position: absolute;
             top: 70px;
-            right: 16px;
+            right: 10px;
             background: #111;
-            flex-direction: column;
-            padding: 12px;
+            padding: 10px;
             border-radius: 10px;
             display: none;
+            flex-direction: column;
             width: 200px;
           }
 
-          .menu.open {
+          .mobileMenu.open {
             display: flex;
           }
 
           .item {
             width: 100%;
             text-align: left;
+          }
+
+          .centerLogo {
+            top: -5px;
           }
         }
       `}</style>

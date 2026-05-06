@@ -6,8 +6,8 @@
 /* ===== BANNER ===== */
 .banner {
   position: relative;
-  height: 300px;
-  background: url("/photos/contact.jpg") center/cover no-repeat;
+  height: 80vh;
+  background: url("/photos/contact1.png") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;

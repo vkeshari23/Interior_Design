@@ -6,14 +6,32 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
+import { Handshake, Users, PencilRuler, Home } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function WorkSection() {
   const steps = [
-    { id: 1, title: "Meet Customers", icon: "🤝" },
-    { id: 2, title: "Design Discussion", icon: "👥" },
-    { id: 3, title: "Drafting Design", icon: "📐" },
-    { id: 4, title: "Implementation", icon: "🏠" },
+    {
+      id: 1,
+      title: "Meet Customers",
+      icon: <Handshake size={40} strokeWidth={1.5} />,
+    },
+    {
+      id: 2,
+      title: "Design Discussion",
+      icon: <Users size={40} strokeWidth={1.5} />,
+    },
+    {
+      id: 3,
+      title: "Drafting Design",
+      icon: <PencilRuler size={40} strokeWidth={1.5} />,
+    },
+    {
+      id: 4,
+      title: "Implementation",
+      icon: <Home size={40} strokeWidth={1.5} />,
+    },
   ];
 
   return (
@@ -38,7 +56,7 @@ export default function WorkSection() {
       {/* 🔥 HERO SECTION */}
       <div className="hero">
         <div className="overlay">
-          <h1>Think interior. Think Anugraha Home Interior Interiors.</h1>
+          <h1>Think interior. Think Anugraha Home Interiors.</h1>
           <p>
             Interiors for all tastes and budgets. Choose from thousands of
             designs.
@@ -52,16 +70,19 @@ export default function WorkSection() {
         <div className="footer-container">
           {/* COLUMN 1 (LOGO + ABOUT) */}
           <div className="footer-col logo-col">
-            <h2 className="logo">
-              Anugraha Home
-              <br />
-              INTERIORS
-            </h2>
+            <div className="logoBox">
+              <Image
+                src="/photos/int_logo.png"
+                alt="logo"
+                width={120}
+                height={80}
+              />
+              <h2>Anugraha Home Interiors</h2>
+            </div>
             <p className="desc">
-              We are an interior design consultancy firm that brings sensitivity
-              to the design of top restaurants, hotels, offices, and homes
-              around the world. We specialize in all types of interior design,
-              creating prestigious and luxurious spaces.
+              We design elegant and functional interiors for homes, offices,
+              hotels, and restaurants, blending style, comfort, and quality to
+              create spaces that truly stand out.
             </p>
           </div>
 
@@ -70,10 +91,15 @@ export default function WorkSection() {
             <h3>USEFUL LINKS</h3>
             <div className="tags">
               <Link href="/">Home</Link>
+              <br />
               <Link href="/aboutUs">About Us</Link>
+              <br />
               <Link href="/services">Service</Link>
+              <br />
               <Link href="/projects">Projects</Link>
+              <br />
               <Link href="/contact">Contact Us</Link>
+              <br />
               {/* <Link href="/blog">Blog</Link> */}
             </div>
           </div>
@@ -87,10 +113,10 @@ export default function WorkSection() {
               <li>Electrical</li>
               <li>Plumbing</li>
               <li>False Ceiling</li>
-              <li>Painting</li>
+              {/* <li>Painting</li>
               <li>Deep Cleaning</li>
               <li>Design Services</li>
-              <li>Modular Kitchen</li>
+              <li>Modular Kitchen</li> */}
             </ul>
           </div>
 
@@ -165,37 +191,65 @@ export default function WorkSection() {
           flex-wrap: wrap;
         }
 
+        // .circle {
+        //   width: 90px;
+        //   height: 90px;
+        //   border-radius: 50%;
+        //   background: #1a1a1a;
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   position: relative;
+        //   color: white;
+        //   transition: 0.3s;
+        //   border: 1px solid #2a2a2a;
+        // }
+
         .circle {
-          width: 90px;
-          height: 90px;
+          width: 130px;
+          height: 130px;
           border-radius: 50%;
-          background: #1a1a1a;
+          background: #1a1a1a; /* light gray like image */
           display: flex;
           align-items: center;
           justify-content: center;
           position: relative;
+          // color: #333;
           color: white;
-          transition: 0.3s;
-          border: 1px solid #2a2a2a;
         }
 
         .circle:hover {
-          box-shadow: 0 0 25px #3b82f6; /* 🔵 BLUE SHADOW */
+          box-shadow: 0 0 25px #3b82f6;
           transform: scale(1.1);
         }
 
+        // .number {
+        //   position: absolute;
+        //   bottom: -5px;
+        //   right: -5px;
+        //   background: #3b82f6;
+        //   width: 25px;
+        //   height: 25px;
+        //   border-radius: 50%;
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   font-size: 12px;
+        // }
+
         .number {
           position: absolute;
-          bottom: -5px;
-          right: -5px;
+          bottom: 5px;
+          right: 5px;
           background: #3b82f6;
-          width: 25px;
-          height: 25px;
+          color: black;
+          width: 35px;
+          height: 35px;
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 12px;
+          font-weight: bold;
         }
 
         /* HERO */
@@ -215,7 +269,7 @@ export default function WorkSection() {
           align-items: center;
           justify-content: center;
           position: relative;
-          padding: 20px; /* 🔥 ADD */
+          padding: 20px;
         }
 
         .hero::before {
@@ -236,11 +290,11 @@ export default function WorkSection() {
           text-align: center;
           color: white;
 
-          display: flex; /* 🔥 ADD */
-          flex-direction: column; /* 🔥 VERTICAL ORDER */
+          display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
-          gap: 15px; /* 🔥 spacing between lines */
+          gap: 15px;
         }
 
         /* HEADING */
@@ -270,7 +324,7 @@ export default function WorkSection() {
 
         button {
           padding: 12px 28px;
-          background: #111; /* 🔲 DARK BLACK */
+          background: #111;
           color: white;
           border: 1px solid #2a2a2a;
           cursor: pointer;
@@ -283,7 +337,7 @@ export default function WorkSection() {
         /* Hover Effect */
         button:hover {
           border-color: #3b82f6;
-          box-shadow: 0 0 15px #3b82f6; /* 🔵 BLUE GLOW */
+          box-shadow: 0 0 15px #3b82f6;
           transform: translateY(-2px);
         }
 
@@ -301,6 +355,18 @@ export default function WorkSection() {
           gap: 40px;
           max-width: 1200px;
           margin: auto;
+        }
+
+        .logoBox {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .logoBox h2 {
+          font-size: 20px;
+          color: white;
         }
 
         /* LOGO */
@@ -325,7 +391,7 @@ export default function WorkSection() {
           content: "";
           width: 40px;
           height: 2px;
-          background: #3b82f6; /* 🔵 BLUE */
+          background: #3b82f6;
           display: block;
           margin-top: 8px;
         }
@@ -366,7 +432,7 @@ export default function WorkSection() {
         }
 
         .services li:hover {
-          color: #3b82f6; /* 🔵 BLUE */
+          color: #3b82f6;
         }
 
         /* SOCIAL DIAMOND */
@@ -393,7 +459,7 @@ export default function WorkSection() {
         }
 
         .diamond:hover {
-          border-color: #3b82f6; /* 🔵 BLUE */
+          border-color: #3b82f6;
           color: #3b82f6;
           transform: rotate(45deg) scale(1.1);
         }
